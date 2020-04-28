@@ -1,0 +1,53 @@
+new terminal :-- gnome-terminal
+
+we use bash scripting in linux
+
+RAM -- Memory -- temporary
+HDD -- Storage -- Data stored is permanent
+
+ps -aux --> to find all process in ram
+ps -aux | grep firefox --> fetches firefox with PID
+kill PID  --> Useful to close multiple terminal windows(example) etc
+
+New user -- useradd jack
+setting password -- passwd jack  (and set it)
+id jack --> to view user details
+
+find current user --> whoami
+
+console - virtual terminal
+redhat provides 6 of them
+To switch VT, we use ctrl+alt+(f1,f2,f3...)  or chnvt (1,2,3,4,5,6)[(not sure)But doesnt work in sudo terminal]
+f1,,f2 --> gui
+f3,f4,f5,f6 --> cli based
+
+cli based consoles doesnt support mouse interaction.
+To enable, we have to intall gpm(General Purpose Mouse)
+
+startx --> command to convert cli to gui
+check terminal --> tty command
+
+To increase no of VT's, we go to etc/systemd/logind.conf and chane NautoVTs
+
+***********************
+Shell is a program which processes commands and returns output , like bash in Linux . Terminal is a program that run a shell.
+
+The main difference between kernel and shell is that the kernel is the core of the operating system that controls all the tasks of the system while the shell is the interface that allows the users to communicate with the kernel.
+
+username@computername:~$ _
+is actually a program which facilitates you with invoking a "SHELL" prompt.
+************************
+
+Hackers want shell, But to open shell, they want to pass authentication.
+
+-->gnome {user and GUI}
+-->shell {user and CLI}
+-->kernel{hardware and software}
+
+echo $USER --> USER is a variable == whoami
+
+tput setaf (1|2|...|7) - to change shell color
+tput setaf 3 --> orange
+tput setab 4 --> [f=foreground color, b = background color]
+
+reset --> returns default of shell

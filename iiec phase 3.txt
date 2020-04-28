@@ -1,0 +1,113 @@
+list is mutable datatype and tuple is immutable datatype
+
+x=[1,2,3,4,5]
+
+x[1]=2
+x[-1]=5
+x[1:]=[2,3,4,5]
+x[-2:]=[4,5]
+x[::1]=[1,2,3,4,5]  --> jump
+x[::2]=[1,3,5] --> jump twice
+x[::-1]=[5,4,3,2,1]
+
+arr=[["vimal",1111],["daga",2222]]
+arr[0]=["vimal",1111]
+arr[0][1]=1111
+
+I/O and pipes
+
+when we run a command , we get output in terminal. Why not it displays anywhere else(like other VT's, whatsapp)
+
+Terminal is a device
+tty --> provides device name
+tty = terminal device
+
+chvt 3 --> goes to VT3
+tty --> /dev/tty3
+if we go to VT 1 and type --:- date > /dev/tty3, it outputs in tty3 device
+No need of login to VT is required
+
+> --> output direction
+date > hi.txt
+cat hi.txt --> [contains date]
+
+cat > hip.txt
+hi buddy 
+by
+press ctrl+D to save
+cat hip.txt to view the file
+
+> file.txt  --> creates file
+
+tr command [translate] = tr 'a-z' 'A-Z'  ===> (convets small to capital)
+
+< means input redirection
+tr 'a-z' 'A-Z' < hi.txt
+
+duty of cat command = cat needs input. It takes input and displays it
+cat < hi.txt --> it recievs data from file and prints it.
+
+
+Every software is bunch of files. It is also called as package.
+When we install a software, it copies(or extracts) all files to our hardrive
+OS is bunch of lots of hardwares.
+
+In windows, we install all the software at our desired location.
+In linux , the files are distibuted in various folders.
+Every os has their own file management system
+
+linux package management = rpm
+rpm -q firefox ==> (q=query, if software is present, it returns name and version)
+rpm -q -a --> lists all software
+
+which python3 --> /usr/bin/python3
+rpm -q -f /usr/bin/python3
+gives software and its version
+
+rpm -e firefox --> erase or uninstall
+
+To install software with rpm, we shoul go to packages folder and 
+rpm -i (firefox....) --> press tab to autocomplete and press enter
+
+-v = verbose mode --> to find what is going on ehile installing software
+-h = gives percentage installation bar
+rpm -q -l firefox --> gives in which folders, the software files are installed in os
+
+to open image files we use --> eog /path/file.png
+
+If two images in downloads folder.
+cat.jpg  dog.jpg
+cp cat.jpg dog.jpg  --> copies(replace) dog.jpg with cat.jpg
+
+
+x=[["hi",333,"ji"],["pi","ki",009],[11,222,"oiu"]]
+import numpy as np
+a=np.array(x)
+a[: ,1] --> gives [333,"ki",222]
+
+cal 
+prints calendar
+To know its correcrt, 
+type echo $? ---> Output:0 means correct
+
+I/O redirection
+
+If command is success, it sends output to std:out(screen) using channel 1
+so if date > f.txt, output gets from channel 1 is send to f.txt
+date > f.txt == date 1> f.txt
+
+If command is failure, it goes through channel 2(default channel) 
+so, if xyz > f1.txt, output displays through screen
+if xyz 2> f1.txt, output(i.e., error data) goes to f1.txt
+We can see it by cat f1.txt
+
+shell contains channels.
+
+STDIN  -- 0
+STDOUT -- 1
+STDERR -- 2
+
+date &> f2.txt
+xyz &>> f2.txt
+
+& redirects any data to file. It combines channels

@@ -1,0 +1,107 @@
+Enter = \n = EOL =End of Line in linux
+ctrl + D --> end of file
+
+wc -l -w -c ===> l=lines,w=words,c=characters
+
+ls -l gives extra info
+line starts with d if its directory
+ls -l | grep ^d  -> gives all directories
+
+grep -n linux f1.txt  --> gives line that contains linux in file
+grep -v linux f1.txt  --> gives line that doesn't contains linux in file
+
+date | tee f1.txt  --> prints on screen and file
+date | tee | wc -w
+date | tee file.txt | wc -w
+
+command --> tee --> stdout & file (only)
+
+cat spider.txt | tr ' ' '\n' | sort | uniq -c | sort -nr | head
+sort--> alphabetically
+uniq c --> counts no of words and appends that number in front
+sort -nr --> sort acc to num in reverse order
+head --> 1st ten lines display
+
+free -> gives free memory
+uptime -> log in minutes
+
+echo "`date`" == echo "$(date)"
+
+basename "file.html" ".html"  --> returns "file" as output
+
+Code to change extension
+
+#!/usr/bin/bash
+
+for file in *.HTM; do
+  name=$(basename "$file" .HTM)
+  echo mv "$file" "$name.html"  --> if its act correct, remove echo   
+done
+
+
+If u want to run a remote command from ur laptop, we need ssh protocol
+
+Connecting two vms in virtual box
+Host-only mode --> connect but no internet access
+Vridging adapter --> connect with internet supply but needs a hub(mobile hotspot)
+
+If conneted,
+ssh (ip of other system) mkdir boxx  --> It gets created in other system
+
+RAM + CPU = Compute unit
+HDD = Storage unit
+
+ssh is used to acces compute unit of remote system
+
+
+ssh vishnu@192.168.43.55 date --> rum command in remote system
+scp my.py root@192.168.43.54:/root  --> upload file to remote system
+scp root@192.168.43.54:/root/hi.txt  /Desktop/  --> Download file from remote host to localhost
+scp -r root@192.168.43.54:/root/fold1  /Desktop/  --> Download folder from remote host to localhost
+
+ssh only works if output is in text format like date,cal etc
+ssh root@102.168.43.54 firefox --> doesnt work for graphical output
+ssh -X root@102.168.43.54 firefox --> works fine
+
+To change password
+ssh -t userName@server.ip.address.here passwd
+
+In ubuntu,
+go to root --> sudo -i
+passwd user
+
+rpm only installs softawre, but doesnt download it.
+Instead we use yum command to download and install softawres.
+yum install firefox
+yum remove firefox
+
+gpgcheck=0 // for disabling checking
+gpgcheck=1 // to enable check while installing software
+
+cd /etc/yum.repos.d/  --> create vishnu.repo and add baseurls
+
+yum repolist --> to check if its completely configured
+yum list python2 --> lists if python2 software is present in repolist(i.e baseurls that we have given)
+If present we can install.
+
+dnf is upgrade version of yum introduced in redhat8
+
+When baseurl is http url and is invalid, yum takes alot of time to close but dnf doesnt
+epel-release software automatically adds internet url and configures yum
+wget --> to install software from url
+rpm fusion , another softaere like epel.
+
+dnf repolist after installing epel
+wde get all softwares in epel (Extra packages for enterprise linux)
+
+There are three timestamps in linux
+atime (access time) - The last time the file was accessed/opened by some command or application such as cat.
+mtime (modify time) - The last time the file’s content was modified.
+ctime (change time) - The last time the file’s attribute or content was changed. The attribute includes file permissions, file ownership or file location.
+
+To display the file status including the timestamps, use the stat command.
+stat ai.txt
+
+touch -m ai.txt  --> changes modify time to current time
+touch -a ai.txt  --> changes access time to current time
+touch -c ai.txt  --> changes all times to current time

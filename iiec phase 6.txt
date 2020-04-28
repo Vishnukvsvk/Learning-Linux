@@ -1,0 +1,34 @@
+cd a  --> power consumed is more
+cd a/ --> power consumed is less comapred to above cmd
+
+ht=directory with files
+rm -r ht --> Type yes for all and it gets deleted
+rm -r -f ht --> force delete
+rm -r -f -v ht --> v=verbose , to know behind the scene
+
+cp -r /etc/httpd/conf  .  --> copy to current location
+
+When u copy data, it is stored in clip board
+xclip -o -->prints clipboard data
+
+date | xclip -i  --> to copy output of date
+
+rpm -q openssh-server --> we need it to make our sustem as ssh server
+vim /etc/ssh/ssh_config  --> config file
+ssh --> port 22
+httpd --> port 80
+systemctl status sshd
+
+rpm -q openssh-clients --> to make system as client
+
+which ssh --> /usr/bin/ssh
+rpm -qf /usr/bin/ssh --> gives software package name and version
+
+To access remote shell
+ssh -l username(root) ipaddress
+Type passwd and u get access to remote shell
+
+mac hass ssh client by default but windows doesnt.
+we can use third party software in windows --> putty
+
+date: cal; ls --> to run all commands at once

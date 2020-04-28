@@ -1,0 +1,138 @@
+touch - make file
+mkdir - make a directory
+rmdir - remove directory
+mkdir -p tin/hi/op/ki   -   make path of directories
+rm - removes file
+rm -r tin/hi --> removes path of directories(recursive)
+man - gives description of commands
+
+
+ctrl+C --> SIGINT --> Signal Interrupt
+ctrl+Z --> SIGSTP -->  Process suspended,runs in background --> kill -TSTP PID
+Resume from background --> fg (no.) --> kill -CONT (PID)
+
+text editors
+nano
+vim
+emacs
+
+ps aux |grep -i /home/totally_not_malicious  --> to get PID of process
+
+mv hi.txt ai.txt (renames)
+cat hi.txt (reads hi.txt)
+
+
+ps aux - (ps=snapshot of processes) Displays all process
+ps aux|grep firefox - gives its info
+top - task manager(gives running processs, frre ram etc)
+htop (same like top with different ui)
+PID - each process have process id's
+kill -l --> gives all terminating commands
+kill 2354 -->(kills 2354 process(2354=process id))
+renice -n pid --> (-20 to 20 = priority) (threads concept)
+pid =1=root or systemd
+every process has parent process, if parents process gets killed, it goes to root process
+
+File systems
+man hier - gives all file systems
+/etc - config files
+/bin - contains all commnads
+ssh - secure shell(protocal, to connect to remote server)
+/proc - virtual file system (contains details of all process)
+/usr - conatains bin,games etc
+/home - home
+/root - root folder
+/boot - files required for booting
+/var - contains log - important
+/lib64 - libraries
+/tmp - contains temporary files, files on download process etc
+/sbin - donot change it
+
+Above folders are found in ls /
+
+in sudo -i(root access):-
+cat /etc/passwd or cat /etc/shadow gives all accounts in system
+I have 41 accounts
+Accounts=Root,User=vishnu, service accounts like games,man, other services that are connected to databases
+We can create a test account also:
+
+useradd -m -d /home/sankar -u (userid) -g (gropid) -s /bin/bash  sankar
+-->(-m=home -d=directory -s=shell,(userid,groupid) are optional)
+
+after adding, u can check by [tail /etc/passwd]
+
+for setting password:passwd sankar
+usermod -L sankar(Locks the account)
+usermod -U sankar(removes lock)
+userdel sankar [--> removes user] but it is present in /home[but doesnt function]
+rm -rf /home/sankar [removes sankar from home directory]
+
+rwx[read-write-execute] -->owners
+r-x[read - execute] --> owner group
+
+7 = rwx
+6=rw
+4 = r
+0=no permissions
+
+ex = 777 (owner-group-everyone else)
+chmod 640 newfile
+
+dr=directory
+l=links
+
+blocks and character device files
+ls -l /dev
+ls -l /dev |grep sd
+gives sd info[blocks]
+
+Two applications in linux can interact with each other with sockets
+ctrl + D --> exit root user
+
+crontab --> for scheduling tasks
+crontab -l -->lists a crontab
+crontab -e -->creates a crontab
+At bottom,write your task
+
+#m h dom mon dow   command
+15 10 *  *  3-5   echo "hi there">hi.txt
+
+m=minute
+h=hour
+dom=day of month
+mon=month of year
+dow=day of week
+
+ls /etc/cron.d
+
+tmux-->terminal multiplexer
+every command in tmux starts with ctrl+b 
+like : ctrl +b c  -->creates a new window
+
+p --> previous window
+n --> next window
+& --> kill window
+% --> split vertically
+o --> to switch into different pane in same window
+x --> kill pane
+
+Sessions: -->terminals which act as backup sessions
+tmux new -s backupssesions
+
+U can run a task and detach from session and work on other tasks. But the session runs on background.
+ctrl+b d --> to detach sessinons
+tmux ls -->gives list
+tmux attach -t backupsessions
+
+we can even share sessions using attch -t sessionname
+
+Archiving and Compressing
+Simply zip=Archiving
+Find patterns and compress=Compressing  --> Using math algorithms
+
+tar does both archieving and compressing
+
+tar -zcvf docs.tar.gz Documents/      [z=zip , c=create , v=verbose(not used in remote access), f=file name]
+ls --> to see above file
+Move it in another folder and dezip it
+tar -zxf docs.tar.gz         [x=extract]

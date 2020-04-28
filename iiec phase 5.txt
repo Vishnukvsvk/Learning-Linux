@@ -1,0 +1,62 @@
+dnf intall httpd
+service httpd start
+service httpd status
+
+cd /var/www/html
+U can create html pages in this folder
+
+Redhat has inbuilt firewall, so we cant run the server
+systemctl stop firewalld  --> this command stops firewall temporarily,for that session
+systemctl disable firewalld  --> stops firewall permanently
+
+curl --> client url --> command to access any url
+curl is command line browser
+
+In one OS, we can create multiple servers
+port number is unique identification of serivice
+ssh-22, dns-53, mail-25 etc
+
+netstat -tnlp --> gives all services with port numbers
+standard port : http : 80 for a webserver
+But, we can assign any port number for our server, to do that we have to configure our web server.
+cd /etc/httpd/conf
+gedit httpd.conf --> and chanege port number
+port number range : 2 bytes = 2^16 --> 0 to 65536
+
+
+Whenevr u change anything in conf file, u have to restart the proccess.
+service httpd stop || systemctl stop httpd
+service httpd start
+
+web client --> Browser
+
+daemon are programs that u dont need to login to access them.
+Examples are web servers.
+
+SELinux --> security enhanced linux
+It is the biggest secutity for os in the world
+
+httpd service only accepts 80 and 81 due to SELinux
+For using other ports,we need to disable SELinux
+
+To disable SELinux,
+setenforce 0
+To enable it again.
+setenforce 1
+
+We cant give one port to multiple programs but we can give one program to multipe ports
+
+### nmap is illegal, use it to your own server
+nmap -sP 192.168.43.1-255
+gives which host are up
+
+nmap -sT 192.168.43.54
+gives all protocols of that server.
+
+To get detailed report of the port of server, we type
+nmap -sT -p 1111(port number) -sV 192.168.43.54
+It gives, what service protocol, which software and version u r using
+
+Always change in /etc/httpd/conf.d location.
+Create a .conf file and set priorities
+Priorities are always given to secondary config file

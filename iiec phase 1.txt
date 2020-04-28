@@ -1,0 +1,99 @@
+To run a process in linux, typr the process name
+Ex- to open firefox, type firefox and press enter.
+
+which firefox -- Gives where firefox is installed -- /usr/bin/firefox
+Every process is a program or a script
+
+gedit -- notepad of linux
+gedit /usr/bin/firefox  -- opens firefox script which is written in bash
+We can even change it and get own custom firefox also.
+
+commnads
+-->date
+-->cal = gives calendar of month
+-->cal 2020 = gives calendar of whole year
+-->cal 10 2020 = oct 2020 cal
+
+in cal 1752 --> 11 days are misiing?
+
+-->speak command = espeak-ng hello  --> in redhat 8
+-->date | espeak-ng
+
+watch date --> refreshes date every 2 sec, keeps on displaying
+watch -n 1 date --> fo every 1 sec
+
+ctrl+c = terminate program
+ctrl+z = pause the program and puts in background
+
+ping goo.gl = sends icmp packets ontinuosly
+ctrl+z = pauses it and puts it in background
+jobs = prints all processes paused in background
+fg (id) = brings it to foreground and resumes
+
+
+(process)  & --> puts task in background and runs it.
+firefox  & --> It runs firefox, we can use the browser and also terminal is available.
+
+whatever you wite in back quote, it treats as command.
+echo "date" --> date
+echo "`date`" --> 2 -04 -20202
+echo -n "hello" --> prints hello beside --> no new line
+
+echo -e "hello\nhi" --> -e enables escape sequence
+hello
+hi
+
+echo -e "hello\thi" --> -e enables escape sequence
+hello	hi
+
+\b --> backspace
+echo -e "hello\bhi" --> hellhi
+echo -e "hello\b"   --> hello --> Because after hello it goes to newline.
+echo -e -n "hello\b" --> hell [root]:
+
+man --> manual
+
+gedit mywork
+
+In it, write all commands u want
+ex-
+
+date
+cal
+cal 1752
+date +%d
+
+-- and then save file
+
+Now bash mywork --> this runs the file content as commads and executes all commands in it
+
+livedate
+while:
+do
+echo -n -e "`date +%T``sleep 1`\b\b\b\b\b\b\b\b"
+done &
+
+or
+
+while: ; do echo -n -e "`date +%T``sleep 1`\b\b\b\b\b\b\b\b" ;done &
+
+ifconfig
+--> displays all network cards
+first card = main card = enp0s3 = ethernet cards
+
+Any address which can be stored within 4 bytes is valid ip address
+But __.__.__.__ format is highly use
+
+bc = calculator
+
+google ip address
+172.217.163.196
+
+convert it into octet -> 172*(2^24)+217*(2^16)+163*(2^8)+196*(2^0) = 2899944388
+ping 2899944388 means pinging google.
+
+Therfore , 2899944388 is valid ip.
+Advantage : if u block an ip address, they create a firewall for ipv4 format. But u can access the server by converting ipv4 to one octet. Its a hack.
+
+There are some proxy that only allows certain ip address, here we can used the hack
+

@@ -1,0 +1,25 @@
+vim editor 
+
+i = insert mode
+esc = control mode
+:w = save
+:q = quit
+:wq (or) :x = save and quit
+:q! = dont save and exit
+yy--> to copy line and, p--> to paste line
+10p--> paste 10 times [np--n times]
+u = undo
+dd--> to cut(or delete) line and, p--> to paste recent deleted line
+:set number --> displays line number
+:5 --> goes to line 5
+vim +20 hi.txt --> goes to 20th line after opening
+
+open file
+/vimal  --> to search vimal in file
+
+To lock file,
+vim -x db.txt
+-> press enter
+-> type encryption key
+And continue using it.
+This encrypts the file

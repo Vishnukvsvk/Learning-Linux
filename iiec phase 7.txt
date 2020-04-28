@@ -1,0 +1,46 @@
+For connecting two machines ,we require
+
+1.OS
+2.Network card
+3.IPv4
+4. Ip of A and IP of B should be in same network
+5.Physical connectivity(wireless or wire)
+
+Network name --> initial 3 octets of 4 in ipv4.[(192.168.54).43] 
+
+If network names are same --. to connect, we can use direct coaxial cable,switch,hub,bridge etc
+If networks names are different,
+192.168.1.1 && 192.168.2.5 --> Only router can establish connection
+
+Above is old
+To get netwok name --> comapre with netmask
+if netmask = 255.255.255.0 , then first 3 octets is your network name
+
+Mathematically
+To get netwok name,convert ip and netmask to binary and do & operation to every digit.
+
+CIDR format can also give netmask
+255.0.0.0    --> /8
+255.255.0.0  --> /16 
+
+Mobile hotspot --> switch
+
+Router has 2 sides --> one side it has ip addres of same network name of LAN
+                   --> other side, it has ip address of same network name of Google(or other)
+
+Hotspot works as switch and router also.
+
+route -n --> gives gateway ip
+0.0.0.0 --> to connect to any ip in the world = special ip
+route del -net 0.0.0.0 --> removes entry in route table
+
+We can configure betwork of system manually
+That means we can give our own ip,net mask et c
+ifconfig enp0s3 1.2.3.4 netmask 255.255.0.0  --> manual config
+
+Or we set network config automatically using DHCP(Dynamic host configuration) server
+
+DHCP contains IPAM(IP Address Management)
+
+SDN = Software Define Network --> Can create switch functionality using software
+Bridge = switch+router --> software=SDN
